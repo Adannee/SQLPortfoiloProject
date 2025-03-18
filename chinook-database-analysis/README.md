@@ -18,13 +18,3 @@ This project analyzes the **Chinook Database**, which simulates a digital music 
 ##  SQL Queries & Analysis  
  Full SQL queries are available in [`Chinook.sql`](Chinook.sql).  
 
-Example Query - **Top 5 Albums by Sales**:
-```sql
-SELECT a.Title AS Album, ar.Name AS Artist, COUNT(il.InvoiceLineId) AS Sales_Count
-FROM InvoiceLine il
-JOIN Track t ON il.TrackId = t.TrackId
-JOIN Album a ON t.AlbumId = a.AlbumId
-JOIN Artist ar ON a.ArtistId = ar.ArtistId
-GROUP BY a.AlbumId
-ORDER BY Sales_Count DESC
-LIMIT 5;
